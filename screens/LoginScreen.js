@@ -21,7 +21,9 @@ const LoginScreen = ({ navigation }) => {
     }, [])
 
     const signIn = () => {
-        console.log('Sign In')
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .catch(error => alert(error.message))
     }
 
     return (
@@ -45,10 +47,11 @@ const LoginScreen = ({ navigation }) => {
                     placeholder='Password'
                     secureTextEntry
                     type='password'
+                    onSubmitEditing={signIn}
                 />
             </View>
-            <Button title='Login' onPress={signIn} containerStyle={styles.button} />
-            <Button title='Register' onPress={() => navigation.navigate('Register')} type='outline' containerStyle={styles.button} />
+            <Button title='Login' onPress={signIn} style={styles.button} />
+            <Button title='Register' onPress={() => navigation.navigate('Register')} type='outline' style={styles.button} />
             <View style={{ height: 100 }} />
         </KeyboardAvoidingView>
     )

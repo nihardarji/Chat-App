@@ -66,8 +66,7 @@ const RegisterScreen = ({ navigation }) => {
             </View>
 
             <Button
-                containerStyle={styles.button}
-                raised
+                style={styles.button}
                 title='Register'
                 onPress={register}
             />
