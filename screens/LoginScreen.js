@@ -1,12 +1,24 @@
-import React, { useState } from 'react'
-import { StyleSheet, Text, View, KeyboardAvoidingView } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { Button, Input, Image } from 'react-native-elements'
 import img from '../assets/chat-image.png'
+import { auth } from '../firebase'
+import { KeyboardAvoidingView } from 'react-native'
 
 const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    useEffect(() => {
+        const unsubcribe = auth.onAuthStateChanged(authUser => {
+            if (authUser) {
+                navigation.replace('Home')
+            }
+        })
+
+        return unsubcribe
+    }, [])
 
     const signIn = () => {
         console.log('Sign In')
