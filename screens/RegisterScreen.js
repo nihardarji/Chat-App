@@ -70,7 +70,7 @@ const RegisterScreen = ({ navigation }) => {
                 title='Register'
                 onPress={register}
             />
-            <View style={{ height: 100 }} />
+            <View style={{ height: 120 }} />
         </KeyboardAvoidingView>
     )
 }
