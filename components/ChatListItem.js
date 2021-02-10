@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Avatar, ListItem } from 'react-native-elements'
 
-const ChatListItem = () => {
+const ChatListItem = ({ id, chatName }) => {
     return (
         <ListItem>
             <Avatar
@@ -14,9 +14,9 @@ const ChatListItem = () => {
             />
             <ListItem.Content>
                 <ListItem.Title>
-                    Test Chat
+                    {chatName}
                 </ListItem.Title>
-                <ListItem.Subtitle>
+                <ListItem.Subtitle numberOfLines={1} ellipsizeMode='tail'>
                     Subtitle for testing
                 </ListItem.Subtitle>
             </ListItem.Content>
