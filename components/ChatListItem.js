@@ -2,14 +2,14 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Avatar, ListItem } from 'react-native-elements'
 
-const ChatListItem = ({ id, chatName }) => {
+const ChatListItem = ({ id, chatName, enterChat }) => {
     return (
-        <ListItem>
+        <ListItem onPress={() => enterChat(id, chatName)} key={id}>
             <Avatar
                 rounded
                 source={{
                     uri:
-                        'https://pixabay.com/photos/road-forest-fall-autumn-season-1072823/',
+                        'https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png',
                 }}
             />
             <ListItem.Content>
